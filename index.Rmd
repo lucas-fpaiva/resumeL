@@ -1,0 +1,207 @@
+---
+title: "Lucas Paiva's CV"
+author: Lucas Ferreira Paiva
+date: "`r Sys.Date()`"
+params:
+  pdf_mode:
+    value: false
+output:
+  pagedown::html_resume:
+    css: [ 'css/dd_cv.css', 'css/custom.css','resume']
+    self_contained: true
+#knit: pagedown::chrome_print      
+---
+
+```{r metathis, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_name("github-repo" = "lucas-fpaiva/resumeL") %>% 
+  meta_social(
+    title = "Lucas Paiva CV",
+    description = paste(
+      "CV made with the packages RMarkdown, pagedown, datadrivencv."
+    ),
+    url = "https://lucaspaivacv.netlify.app",
+    image = "https://avatars.githubusercontent.com/u/55860538?v=4",
+    image_alt = paste(
+      "Lucas Paiva CV"
+    ),
+    og_type = "website",
+    og_author = "Lucas Ferreira Paiva"
+  )
+```
+
+<!-- inicio academic icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<!-- final academic icons -->
+
+ 
+<!-- inicio font awesome -->
+<script src="https://kit.fontawesome.com/c7b15a5f1b.js" crossorigin="anonymous"></script>
+<!-- final font awesome -->
+
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  results='asis',
+  echo = FALSE
+)
+
+library(magrittr) # For the pipe
+source("cv_printing_functions.R")
+
+# Read in all data and initialize a CV printer object
+CV <- create_CV_object(
+  data_location = "https://docs.google.com/spreadsheets/d/1YOb8Q9Z-QfYkGOR1XmYofMQuBKy-TwMRW0_vbNHT_-Q/edit?usp=sharing",
+  pdf_mode = params$pdf_mode
+)
+
+CV$entries_data <- CV$entries_data %>% dplyr::filter(in_resume == TRUE)
+
+```
+
+
+```{r}
+# When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.
+if(params$pdf_mode) {
+    cat("
+    <style>
+    :root{
+      --decorator-outer-offset-left: -6.5px;
+}
+    </style>")
+}
+```
+
+
+Aside
+===========================================================================
+<center>
+![Lucas Paiva](https://avatars.githubusercontent.com/u/55860538?v=4){width=100% style='border-radius: 50%;'}
+</center>
+
+### Contact
+
+<center>
+<a href='https://github.com/lucas-fpaiva' target='_blank'><i class="fa fa-github"></i></a> 
+<a href='mailto:paiva.1996.lucas@gmail.com'><i class="fa fa-envelope"></i></a> <a href='https://orcid.org/0000-0003-4924-4666' target='_blank'><i class="fab fa-orcid"></i></a> 
+<a href='http://lattes.cnpq.br/2288304608800735' target='_blank'><i class="ai ai-lattes"></i></a>
+</center><br>
+
+### Technical Skills
+
+<boxText>Quantitative Data Analysis</boxText>
+
+<boxText>Machine Learning</boxText> <boxText>Programming</boxText>
+
+<boxText>Statistics</boxText> <boxText>Data Visualization</boxText>
+
+
+
+### Code Skills
+
+<boxText><i class="fab fa-python"></i>Python</boxText> <boxText><i class="fas fa-mountain"></i>Matlab</boxText> <boxText><i class="fas fa-feather"></i>LaTeX</boxText>
+
+<boxText><i class="fas fa-code-branch"></i>Git</boxText> <boxText><i class="fab fa-github"></i>GitHub</boxText> <boxText><i class="fab fa-markdown"></i>Markdown</boxText>
+
+
+### Soft Skills
+
+<boxText>Teamwork</boxText> <boxText>Responsibility</boxText>
+
+<boxText>Critical Thinking</boxText> 
+<boxText>Collaboration</boxText>
+
+<boxText>Research</boxText> <boxText>Time-Management</boxText>
+
+### Languages
+
+<boxText>Portuguese</boxText> <boxText>English</boxText> <boxText>Spanish</boxText>
+
+### Hobbies and Interests
+
+<boxText><i class="fas fa-volleyball"></i>Volleyball</boxText> <boxText><i class="fas fa-leaf"></i>Gardening</boxText>
+
+<boxText><i class="fas fa-music"></i>Dancing</boxText> <boxText><i class="fas fa-handshake-angle"></i>Volunteering</boxText>
+
+<boxText><i class="fas fa-screwdriver-wrench"></i>Repairing Things</boxText>
+
+<br>
+
+```{r}
+# When in export mode the little dots are unaligned, so fix that. 
+if(params$pdf_mode){
+  cat("View this CV online on [https://lucaspaivacv.netlify.app](https://lucaspaivacv.netlify.app)")
+} else{ cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/lucas-fpaiva/resumeL/raw/master/index.pdf)")}
+```
+
+Main
+==========================================================================
+
+Lucas Ferreira Paiva {#title}
+--------------------------------------------------------------------------
+
+
+```{r}
+cat('Motivated data scientist with 3+ years of experience. Passionate about building models that fix problems. I believe that a diversified training goes beyond technical knowledge, providing a more humanistic and integral vision.')
+```
+
+Education {data-icon=graduation-cap data-concise=true}
+--------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('education')
+```
+
+
+Selected Projects {data-icon=laptop}
+--------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('projects')
+```
+
+
+
+\pagebreak
+
+::: aside
+
+Disclaimer {#disclaimer}
+--------------------------------------------------------------------------
+Made w/ [**pagedown**](https://github.com/rstudio/pagedown) and [**datadrivencv**](http://nickstrayer.me/datadrivencv/index.html). 
+
+Source code: [github.com/lucas-fpaiva/resumeL](https://github.com/lucas-fpaiva/resumeL).
+
+Last updated on `r Sys.Date()`.
+
+:::
+
+
+Teaching Experience {data-icon=chalkboard-teacher}
+--------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('teaching_experience')
+```
+
+
+
+Selected Oral Communications {data-icon=microphone}
+---------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('oral_communications')
+```
+
+
+Scientific Publications {data-icon=book}
+---------------------------------------------------------------------------
+
+```{r}
+CV %<>% print_section('academic_articles')
+```
+
+
+
+
