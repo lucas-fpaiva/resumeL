@@ -9,7 +9,7 @@ output:
   pagedown::html_resume:
     css: [ 'css/dd_cv.css', 'css/custom.css','resume']
     self_contained: true
-#knit: pagedown::chrome_print      
+knit: pagedown::chrome_print      
 ---
 
 ```{r metathis, echo=FALSE}
@@ -85,7 +85,8 @@ Aside
 <center>
 <a href='https://github.com/lucas-fpaiva' target='_blank'><i class="fa fa-github"></i></a> 
 <a href='mailto:paiva.1996.lucas@gmail.com'><i class="fa fa-envelope"></i></a> <a href='https://orcid.org/0000-0003-4924-4666' target='_blank'><i class="fab fa-orcid"></i></a> 
-<a href='http://lattes.cnpq.br/2288304608800735' target='_blank'><i class="ai ai-lattes"></i></a>
+<a href='http://lattes.cnpq.br/2288304608800735' target='_blank'><i class="ai ai-lattes"></i></a> 
+<a href="https://scholar.google.com/citations?user=cI4igzwAAAAJ&hl=pt-BR" target="_blank"><i class="ai ai-google-scholar"></i></a>
 </center><br>
 
 ### Technical Skills
@@ -100,9 +101,12 @@ Aside
 
 ### Code Skills
 
-<boxText><i class="fab fa-python"></i>Python</boxText> <boxText><i class="fas fa-mountain"></i>Matlab</boxText> <boxText><i class="fas fa-feather"></i>LaTeX</boxText>
+<boxText><i class="fab fa-python"></i>Python</boxText> <boxText><i class="fas fa-mountain"></i>Matlab</boxText>
 
-<boxText><i class="fas fa-code-branch"></i>Git</boxText> <boxText><i class="fab fa-github"></i>GitHub</boxText> <boxText><i class="fab fa-markdown"></i>Markdown</boxText>
+<boxText><i class="fas fa-feather"></i>LaTeX</boxText>
+<boxText><i class="fab fa-markdown"></i>Markdown</boxText>
+
+<boxText><i class="fas fa-code-branch"></i>Git</boxText> <boxText><i class="fab fa-github"></i>GitHub</boxText>
 
 
 ### Soft Skills
