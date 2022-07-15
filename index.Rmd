@@ -21,7 +21,7 @@ meta() %>%
     description = paste(
       "CV made with the packages RMarkdown, pagedown, datadrivencv."
     ),
-    url = "https://lucaspaivacv.netlify.app",
+    url = "https://lucaspaivacv.netlify.app/",
     image = "https://avatars.githubusercontent.com/u/55860538?v=4",
     image_alt = paste(
       "Lucas Paiva CV"
@@ -131,7 +131,7 @@ Aside
 ```{r}
 # When in export mode the little dots are unaligned, so fix that. 
 if(params$pdf_mode){
-  cat("View this CV online on [https://lucaspaivacv.netlify.app](https://lucaspaivacv.netlify.app)")
+  cat("View this CV online on [https://lucaspaivacv.netlify.app/](https://lucaspaivacv.netlify.app/)")
 } else{ cat("[<i class='fas fa-download'></i> Download a PDF of this CV](https://github.com/lucas-fpaiva/resumeL/raw/master/index.pdf)")}
 ```
 
